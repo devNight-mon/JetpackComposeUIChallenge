@@ -70,12 +70,18 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.material)
     implementation(libs.androidx.compose.material.icons.extended)
+    
+    // Media3 Dependencies
     implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.common)
     implementation(libs.androidx.media3.ui)
+    implementation(libs.androidx.media3.ui.compose)
     implementation(libs.androidx.media3.datasource)
+    implementation(libs.androidx.media3.datasource.okhttp)
+
     // Networking
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-// Coil (Profil fotoğraflarını yüklemek için)
     implementation(libs.coil.compose)
+    implementation(libs.okhttp)
 }

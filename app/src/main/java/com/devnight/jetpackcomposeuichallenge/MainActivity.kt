@@ -69,8 +69,7 @@ fun TodoScreen(viewModel: TodoViewModel) {
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
-            .statusBarsPadding(),
-        floatingActionButton = {
+            .statusBarsPadding(), floatingActionButton = {
             Column(horizontalAlignment = Alignment.End) {
                 SmallFloatingActionButton(
                     onClick = { showSettingsSheet = true },
@@ -117,8 +116,7 @@ fun TodoScreen(viewModel: TodoViewModel) {
                         TaskItem(
                             task = task,
                             onDelete = { viewModel.deleteTask(task) },
-                            onStatusChange = { viewModel.toggleTaskCompleted(task) }
-                        )
+                            onStatusChange = { viewModel.toggleTaskCompleted(task) })
                     }
                 }
             }
@@ -149,16 +147,14 @@ fun TodoScreen(viewModel: TodoViewModel) {
                     },
                     onDeleteAll = {
                         showSettingsSheet = false
-                    }
-                )
+                    })
             }
         }
 
         // BottomSheet kısmı
         if (showSheet) {
             ModalBottomSheet(
-                onDismissRequest = { showSheet = false },
-                sheetState = sheetState
+                onDismissRequest = { showSheet = false }, sheetState = sheetState
             ) {
                 Column(
                     modifier = Modifier
@@ -183,9 +179,7 @@ fun TodoScreen(viewModel: TodoViewModel) {
                                     taskText = ""
                                     showSheet = false
                                 }
-                            }
-                        )
-                    )
+                            }))
 
                     Button(
                         onClick = {
@@ -194,8 +188,7 @@ fun TodoScreen(viewModel: TodoViewModel) {
                                 taskText = ""
                                 showSheet = false
                             }
-                        },
-                        modifier = Modifier.fillMaxWidth()
+                        }, modifier = Modifier.fillMaxWidth()
 
                     ) { Text("Kaydet") }
                 }
@@ -213,35 +206,31 @@ fun TaskItem(task: Task, onDelete: () -> Unit, onStatusChange: () -> Unit) {
                 onDelete()
                 true
             } else false
-        }
-    )
+        })
 
     SwipeToDismissBox(
-        state = dismissState,
-        enableDismissFromStartToEnd = false,
-        backgroundContent = {
-            val color = if (dismissState.dismissDirection == SwipeToDismissBoxValue.EndToStart)
-                Color.Red.copy(alpha = 0.7f) else Color.Transparent
+        state = dismissState, enableDismissFromStartToEnd = false, backgroundContent = {
+            val color =
+                if (dismissState.dismissDirection == SwipeToDismissBoxValue.EndToStart) Color.Red.copy(
+                    alpha = 0.7f
+                ) else Color.Transparent
 
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(color, shape = RoundedCornerShape(12.dp))
-                    .padding(horizontal = 20.dp),
-                contentAlignment = Alignment.CenterEnd
+                    .padding(horizontal = 20.dp), contentAlignment = Alignment.CenterEnd
             ) {
                 Icon(Icons.Default.Delete, "Sil", tint = Color.White)
             }
-        }
-    ) {
+        }) {
         Card(
             modifier = Modifier.fillMaxWidth(),
             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
             shape = RoundedCornerShape(12.dp)
         ) {
             Row(
-                modifier = Modifier.padding(12.dp),
-                verticalAlignment = Alignment.CenterVertically
+                modifier = Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically
             ) {
                 Checkbox(checked = task.isCompleted, onCheckedChange = { onStatusChange() })
                 Text(
