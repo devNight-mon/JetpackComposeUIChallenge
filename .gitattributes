@@ -1,2 +1,21 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Kotlin & Java
+*.kt linguist-language=Kotlin
+*.java linguist-language=Java
+
+# XML (Android layouts)
+*.xml linguist-language=XML
+
+# Gradle
+*.gradle linguist-language=Groovy
+*.kts linguist-language=Kotlin
+
+# Ignore generated files
+/build/** linguist-generated=true
+**/build/** linguist-generated=true
+
+# Ignore assets that confuse language detection
+*.html linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false

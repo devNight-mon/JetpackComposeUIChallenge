@@ -123,7 +123,7 @@ fun TodoScreen(viewModel: TodoViewModel) {
         }
         val scope = rememberCoroutineScope()
         val settingsSheetState = rememberModalBottomSheetState(
-            skipPartiallyExpanded = true // Yarım açılmayı atla, tam içeriğe odaklan
+            skipPartiallyExpanded = true
         )
 
         if (showSettingsSheet) {
